@@ -1,6 +1,6 @@
-package com.restassured.apitest.test;
+package com.apitest.restassured.test;
 
-import com.restassured.apitest.integration.ApiIntegration;
+import com.apitest.integration.ApiIntegration;
 import io.restassured.http.ContentType;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.lessThan;
 import static org.junit.Assert.assertEquals;
 
-public class RestAssured extends ApiIntegration{
+public class RestAssured extends ApiIntegration {
 
     String endpoint = "http://localhost:8080/products";
 

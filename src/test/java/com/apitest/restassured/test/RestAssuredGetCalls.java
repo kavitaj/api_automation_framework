@@ -1,13 +1,13 @@
-package com.restassured.apitest.test;
+package com.apitest.restassured.test;
 
-import com.restassured.apitest.integration.ApiIntegration;
+import com.apitest.integration.ApiIntegration;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.get;
 
-public class RestAssuredGetCalls extends ApiIntegration{
+public class RestAssuredGetCalls extends ApiIntegration {
 
     String endpoint = "http://localhost:8080/products";
 
@@ -25,7 +25,7 @@ public class RestAssuredGetCalls extends ApiIntegration{
     }
 
     @Test
-    public void invokeGetResponse(){
+    public void invokeGetCall(){
         Response response = get(endpoint);
         response.getBody().print();
     }

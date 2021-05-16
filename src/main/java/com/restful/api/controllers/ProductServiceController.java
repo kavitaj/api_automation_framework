@@ -1,7 +1,6 @@
 package com.restful.api.controllers;
 
-
-import com.restful.apitest.models.Product;
+import com.restful.api.models.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +42,7 @@ public class ProductServiceController {
     @DeleteMapping(value = "/products/{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") String id) {
         productRepo.remove(id);
-        return new ResponseEntity<>("Product is deleted successsfully", HttpStatus.OK);
+        return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
     }
 
 

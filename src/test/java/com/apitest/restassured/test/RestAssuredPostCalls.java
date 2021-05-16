@@ -1,6 +1,6 @@
-package com.restassured.apitest.test;
+package com.apitest.restassured.test;
 
-import com.restassured.apitest.integration.ApiIntegration;
+import com.apitest.integration.ApiIntegration;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertEquals;
 
-public class RestAssuredPostCalls extends ApiIntegration{
+public class RestAssuredPostCalls extends ApiIntegration {
 
     String endpoint = "http://localhost:8080/products";
 
@@ -22,14 +22,14 @@ public class RestAssuredPostCalls extends ApiIntegration{
 
         JSONObject requestParams = new JSONObject();
         requestParams.put("id", "3");
-        requestParams.put("name", "Paul");
+        requestParams.put("name", "Cashews");
 
         requestSpecification.header("Content-Type", "application/json");
         requestSpecification.body(requestParams.toString());
 
         Response response = requestSpecification.post(endpoint);
         assertEquals(response.getStatusCode(), 201);
-        verifyGetCallResponseById("3", "Paul");
+        verifyGetCallResponseById("3", "Cashews");
     }
 
     public void verifyGetCallResponseById(String id, String name){
