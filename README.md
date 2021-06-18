@@ -32,8 +32,7 @@ Reading the response of the request can be done by parsing the InputStream of th
   }
   in.close();
 ```
-Reference: 
-
+Reference:
 Refer to the `src/test/java/com/apitest/httpurlconnection/` package for creating HTTP requests using HttpURLConnection
 
 ## Rest Assured
@@ -68,6 +67,5 @@ REST Assured is a Java library that provides a domain-specific language (DSL) fo
   // Invoke POST call
   Response response = requestSpecification.post(endpoint);  
 ```
-Reference: 
-
+Reference:
 Refer to the `src/test/java/com/apitest/restassured/test/` package for RestAssured tests
