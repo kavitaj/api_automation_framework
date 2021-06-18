@@ -33,6 +33,39 @@ Reading the response of the request can be done by parsing the InputStream of th
   in.close();
 ```
 Reference: 
-Refer to the `src/test/java/com/apitest/httpurlconnection/helper/ApiHelper.java` class for creating HTTP requests using HttpURLConnection
+Refer to the `src/test/java/com/apitest/httpurlconnection/` package for creating HTTP requests using HttpURLConnection
 
 ## Rest Assured
+REST Assured is a Java library that provides a domain-specific language (DSL) for writing powerful, maintainable tests for RESTful APIs. REST Assured is a high level Java DSL for simplified testing of REST based services built over HTTP. HttpClient is used by REST Assured under the hood for Http communication.
+
+### Sample Usage
+
+1. Invoking a GET request
+``` 
+  get(endpoint).then().assertThat().statusLine(containsString("200"));
+```
+
+2. Using Response object for GET request
+```
+  Response response = get(endpoint);
+  String statusLine = response.getStatusLine();
+  System.out.println("Response statusLine: " + statusLine);
+```
+
+3. Invoke a POST request
+```
+  // Create a JSONObject and add the request parameters 
+  JSONObject requestParams = new JSONObject();
+  requestParams.put("id", "3");
+  requestParams.put("name", "Cashews");
+  
+  // Create a RequestSpecification object and add header and body of the request
+  RequestSpecification requestSpecification = given();
+  requestSpecification.header("Content-Type", "application/json");
+  requestSpecification.body(requestParams.toString());
+  
+  // Invoke POST call
+  Response response = requestSpecification.post(endpoint);  
+```
+Reference: 
+Refer to the `src/test/java/com/apitest/restassured/test/` package for RestAssured tests
